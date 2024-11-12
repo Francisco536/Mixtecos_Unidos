@@ -45,4 +45,7 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function adminlte_image(){
+        return 'https://picsum.photos/300/300';
+    }
 }
