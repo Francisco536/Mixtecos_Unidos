@@ -193,7 +193,7 @@ return [
     */
 
     'classes_body' => '',
-    'classes_brand' => 'bg-danger',
+    'classes_brand' => 'bg-warning',
     'classes_brand_text' => '',
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
@@ -305,13 +305,24 @@ return [
         ['header' => 'Opciones'],
         [
             'text' => 'Coordinadores',
-            'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'route' => 'lista.coordi',
+            'icon' => 'fas fa-user-tie',
         ],
         [
             'text' => 'Representantes',
             'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'icon' => 'fas fa-user-friends',
+        ],
+        [
+            'text' => 'Beneficiarios',
+            'url' => 'admin/settings',
+            'icon' => 'fas fa-users',
+        ],
+        ['header' => 'Documentos'],
+        [
+            'text' => 'Descargar listados',
+            'url' => 'admin/settings',
+            'icon' => 'fas fa-download',
         ],
         // [
         //     'text' => 'multilevel',

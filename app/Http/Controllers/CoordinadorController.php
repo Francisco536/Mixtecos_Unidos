@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Coordinador;
+use Illuminate\Database\Query\IndexHint;
 use Illuminate\Http\Request;
 
 class CoordinadorController extends Controller
@@ -12,7 +13,7 @@ class CoordinadorController extends Controller
      */
     public function index()
     {
-        //
+       return view("coordinador.Index");
     }
 
     /**
