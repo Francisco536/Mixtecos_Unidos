@@ -12,7 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('representantes', function (Blueprint $table) {
-            $table->id();
+            $table->id()->primary();
+            $table->string('name')->nullable();
+            $table->string('ap_paterno')->nullable();
+            $table->string('ap_materno')->nullable();
+            $table->string('sexo')->nullable();
+            $table->interger('telefono')->nullable();
+            $table->string('direccion')->nullable();
+            $table->string('correo')->nullable();
+            $table->foreignId('id_coordinador')->nullable();
             $table->timestamps();
         });
     }

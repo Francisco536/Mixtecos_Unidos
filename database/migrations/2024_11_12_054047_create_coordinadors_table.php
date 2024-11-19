@@ -12,7 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('coordinadors', function (Blueprint $table) {
-            $table->id();
+            $table->id()->primary();
+            $table->string('name')->nullable();
+            $table->string('ap_paterno')->nullable();
+            $table->string('ap_materno')->nullable();
+            $table->integer('telefono')->nullable();
+            $table->string('correo')->nullable();
             $table->timestamps();
         });
     }
