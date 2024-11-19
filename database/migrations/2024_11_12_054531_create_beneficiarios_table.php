@@ -31,7 +31,7 @@ return new class extends Migration
             $table->string('localidad')->nullable();
             $table->string('colonia')->nullable();
             $table->string('calle_numero')->nullable();
-            $table->interger('telefono')->nullable();
+            $table->integer('telefono')->nullable();
             $table->string('direccion')->nullable();
             $table->string('correo')->nullable();
             $table->foreignId('id_coordinador')->nullable();

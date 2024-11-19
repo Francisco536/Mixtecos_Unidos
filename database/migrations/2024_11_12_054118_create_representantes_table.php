@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('ap_paterno')->nullable();
             $table->string('ap_materno')->nullable();
             $table->string('sexo')->nullable();
-            $table->interger('telefono')->nullable();
+            $table->integer('telefono')->nullable();
             $table->string('direccion')->nullable();
             $table->string('correo')->nullable();
             $table->foreignId('id_coordinador')->nullable();
