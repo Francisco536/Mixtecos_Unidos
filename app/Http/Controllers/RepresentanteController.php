@@ -12,7 +12,7 @@ class RepresentanteController extends Controller
      */
     public function index()
     {
-        //
+        return view('representante.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class RepresentanteController extends Controller
      */
     public function create()
     {
-        //
+        return view('representante.create');
     }
 
     /**

@@ -310,7 +310,7 @@ return [
         ],
         [
             'text' => 'Representantes',
-            'url' => 'admin/settings',
+            'route' => 'lista.repre',
             'icon' => 'fas fa-user-friends',
         ],
         [
