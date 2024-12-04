@@ -6,6 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Coordinador extends Model
 {
+    protected $fillable = [
+        'name',
+        'ap_paterno',
+        'ap_materno',
+        'telefono',
+        'correo',
+
+    ];
     public function representantes()
     {
         return $this->hasMany(Representante::class);

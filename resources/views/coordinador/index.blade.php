@@ -34,33 +34,35 @@
                             <th>Nombre</th>
                             <th>Apellido Paterno</th>
                             <th>Apellido Materno</th>
+                            <th>Telefono</th>
                             <th>Correo</th>
                             <th>Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {{-- @if(isset($collection))
+                        @if(isset($collection))
                             @foreach ($collection as $value)
                                 <tr>
                                     <td>{{ $value->name }}</td>
-                                    <td>{{ $value->ap_pater }}</td>
-                                    <td>{{ $value->ap_mater }}</td>
-                                    <td>{{ $value->email }}</td>
+                                    <td>{{ $value->ap_paterno }}</td>
+                                    <td>{{ $value->ap_materno }}</td>
+                                    <td>{{ $value->telefono}}</td>
+                                    <td>{{ $value->correo }}</td>
                                     <td>
                                         <div class="btn-group">
-                                            <a  href="{{route('ver.admin', $value->id)}}"  class="btn-sm btn-rounded btn-primary mb-3" data-toggle="tooltip" data-placement="top" title="Ver"><i class="fas fa-eye"></i></a>
-                                            <a  href="{{route('edit.admin', $value->id)}}"  class="btn-sm btn-rounded btn-warning mb-3" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa fa-edit"></i></a>
-                                            <a href="{{ route('destroy.admin', $value->id) }}" class="btn-sm btn-rounded btn-danger mb-3" data-toggle="tooltip" data-placement="top" title="Eliminar"><i class="fa fa-trash"></i></a>
+                                            <a  href="{{route('ver.coordi', $value->id)}}"  class="btn-sm btn-rounded btn-primary mb-3" data-toggle="tooltip" data-placement="top" title="Ver"><i class="fas fa-eye"></i></a>
+                                            <a  href="{{route('edit.coordi', $value->id)}}"  class="btn-sm btn-rounded btn-warning mb-3" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa fa-edit"></i></a>
+                                            <a href="{{ route('destroy.coordi', $value->id) }}" class="btn-sm btn-rounded btn-danger mb-3" data-toggle="tooltip" data-placement="top" title="Eliminar"><i class="fa fa-trash"></i></a>
 
                                         </div>
                                     </td>
                                 </tr>
-                            @endforeach --}}
-                        {{-- @else
+                            @endforeach
+                        @else
                             <tr>
                                 <td colspan="4" class="text-center">No se encontrarón registros</td>
                             </tr>
-                        @endif --}}
+                        @endif
                     </tbody>
                 </table>
 
@@ -76,7 +78,7 @@
     <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 
-{{-- @section('js')
+@section('js')
     <script> console.log('Hi!');
     $(document).ready(function() {
     setTimeout(function() {
@@ -85,7 +87,7 @@
 
 });
     </script>
-@stop --}}
+@stop
 
 
 

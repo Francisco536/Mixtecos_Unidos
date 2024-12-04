@@ -3,11 +3,7 @@
 @section('title', 'Create')
 @section('content_header')
     <h1>Agregar Coordinador</h1>
-    @if (session('message'))
-    <div class="alert alert-danger" role="message">
-        {{session('message')}}
-    </div>
-    @endif
+
 @stop
 
 @section('content')
@@ -83,7 +79,7 @@
 
                         <div class="row mb-0" style="text-align: center">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-warning">
                                     {{ __('Registrar') }}
                                 </button>
 

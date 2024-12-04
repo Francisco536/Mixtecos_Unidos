@@ -17,7 +17,7 @@ Route::group(['prefix' => 'coordinador'], function(){
     Route::get('/{id}/show', [CoordinadorController::class, 'show'])->name('ver.coordi')->middleware('auth');
     Route::get('/create', [CoordinadorController::class, 'create'])->name('add.coordi')->middleware('auth');
     Route::post('/store', [CoordinadorController::class, 'store'])->name('store.coordi')->middleware('auth');
-    Route::get('/{id}/edit', [CoordinadorController::class, 'edit'])->name('edit.coordi')->middleware('auth');
+    Route::get('/edit/{id}', [CoordinadorController::class, 'edit'])->name('edit.coordi')->middleware('auth');
     Route::post('/update/{id}', [CoordinadorController::class, 'update'])->name('update.coordi')->middleware('auth');
     Route::get('destroy/{admin}', [CoordinadorController::class, 'destroy'])->name("destroy.coordi")->middleware('auth');
 
