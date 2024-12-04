@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('ap_paterno')->nullable();
             $table->string('ap_materno')->nullable();
-            $table->integer('telefono')->nullable();
+            $table->bigInteger('telefono')->nullable();
             $table->string('correo')->nullable();
             $table->timestamps();
         });
