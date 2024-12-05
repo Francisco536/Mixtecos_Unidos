@@ -16,7 +16,7 @@ class Coordinador extends Model
     ];
     public function representantes()
     {
-        return $this->hasMany(Representante::class);
+        return $this->hasMany(Representante::class, 'id_coordinador');
     }
 
     public function beneficiarios()
