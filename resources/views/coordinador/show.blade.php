@@ -12,7 +12,7 @@
                     <div class="card-header">{{ __('Datos del Coordinador') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" id="admin" name="admin" action="{{ route('update.coordi', $coordi->id) }}">
+                        <form method="POST" id="admin" name="admin" action="">
                             @csrf
 
                             <div class="row mb-3">
