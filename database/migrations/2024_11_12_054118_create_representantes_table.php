@@ -20,7 +20,7 @@ return new class extends Migration
             $table->BigInteger('telefono')->nullable();
             $table->string('direccion')->nullable();
             $table->string('correo')->nullable();
-            $table->foreignId('id_coordinador')->nullable();
+            $table->foreignId('id_coordinador')->references('id')->on('coordinadors')->onDelete('cascade');
             $table->timestamps();
         });
     }
