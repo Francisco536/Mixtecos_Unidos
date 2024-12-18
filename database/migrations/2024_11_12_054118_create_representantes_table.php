@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('direccion')->nullable();
             $table->string('correo')->nullable();
             $table->foreignId('id_coordinador')->references('id')->on('coordinadors')->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

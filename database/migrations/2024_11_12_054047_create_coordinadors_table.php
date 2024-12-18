@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('ap_materno')->nullable();
             $table->bigInteger('telefono')->nullable();
             $table->string('correo')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -36,6 +36,7 @@ return new class extends Migration
             $table->string('correo')->nullable();
             $table->foreignId('id_coordinador')->nullable();
             $table->foreignId('id_representante')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
