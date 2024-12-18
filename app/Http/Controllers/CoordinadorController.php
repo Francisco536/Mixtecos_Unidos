@@ -102,8 +102,15 @@ class CoordinadorController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Coordinador $coordinador)
+    public function destroy($id)
     {
-        //
+        $post = Coordinador::find($id);
+
+        if ($post) {
+            $post->delete();
+            return redirect()->route('lista.coordi')->with('message','Coordinador eliminado correctamente');
+        }
+
+        return redirect()->back()->with('error', 'El registro no existe.');
     }
 }

@@ -127,8 +127,16 @@ class RepresentanteController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Representante $representante)
+    public function destroy($id)
     {
-        //
+        $post = Representante::find($id);
+
+        if ($post) {
+            $post->delete();
+            return redirect()->route('lista.repre')->with('message','Representante eliminado correctamente');
+        }
+
+        return redirect()->back()->with('error', 'El registro no existe.');
     }
+
 }
