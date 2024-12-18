@@ -315,7 +315,7 @@ return [
         ],
         [
             'text' => 'Beneficiarios',
-            'url' => 'admin/settings',
+            'route' => 'lista.benef',
             'icon' => 'fas fa-users',
         ],
         ['header' => 'Documentos'],
