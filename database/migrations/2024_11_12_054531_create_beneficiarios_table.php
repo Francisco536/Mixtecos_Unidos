@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('ap_materno')->nullable();
             $table->string('fech_nac')->nullable();
             $table->string('sexo')->nullable();
+            $table->string('est_civil')->nullable();
             $table->string('escolaridad')->nullable();
             $table->string('ine')->nullable();
             $table->string('ing_mensual')->nullable();
