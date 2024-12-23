@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Beneficiarios;
+use App\Models\Coordinador;
+use App\Models\Representante;
 use Illuminate\Http\Request;
 
 class BeneficiariosController extends Controller
@@ -12,7 +14,10 @@ class BeneficiariosController extends Controller
      */
     public function index()
     {
-        //
+        $collection = Beneficiarios::with('representante')->paginate(10);
+
+        $params['collection'] = $collection;
+        return view('beneficiarios.index', $params);
     }
 
     /**
@@ -20,7 +25,10 @@ class BeneficiariosController extends Controller
      */
     public function create()
     {
-        //
+        $coordinadores = Coordinador::all();
+        $representantes = Representante::all();
+
+        return view('beneficiarios.create', compact('coordinadores', 'representantes'));
     }
 
     /**
