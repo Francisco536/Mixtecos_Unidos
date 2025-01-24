@@ -10,6 +10,7 @@ class Beneficiarios extends Model
     use SoftDeletes;
     protected $fillable = [
 
+            'name',
             'ap_paterno',
             'ap_materno',
             'fech_nac',
@@ -26,11 +27,11 @@ class Beneficiarios extends Model
             'prog_social',
             'ocupacion',
             'localidad',
-            'colonia',
-            'calle_numero',
             'telefono',
             'direccion',
             'correo',
+            'id_coordinador',
+            'id_representante',
 
     ];
 
@@ -42,6 +43,6 @@ class Beneficiarios extends Model
 
     public function coordinador()
     {
-        return $this->belongsTo(Coordinador::class);
+        return $this->belongsTo(Coordinador::class, 'id_coordinador');
     }
 }

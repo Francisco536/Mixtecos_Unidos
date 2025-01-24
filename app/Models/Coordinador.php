@@ -23,6 +23,6 @@ class Coordinador extends Model
 
     public function beneficiarios()
     {
-        return $this->hasMany(Beneficiarios::class);
+        return $this->hasMany(Beneficiarios::class, 'id_coordinador');
     }
 }
