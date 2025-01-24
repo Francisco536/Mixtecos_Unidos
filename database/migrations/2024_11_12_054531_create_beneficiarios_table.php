@@ -30,13 +30,11 @@ return new class extends Migration
             $table->string('prog_social')->nullable();
             $table->string('ocupacion')->nullable();
             $table->string('localidad')->nullable();
-            $table->string('colonia')->nullable();
-            $table->string('calle_numero')->nullable();
             $table->BigInteger('telefono')->nullable();
             $table->string('direccion')->nullable();
             $table->string('correo')->nullable();
-            $table->foreignId('id_coordinador')->nullable();
-            $table->foreignId('id_representante')->nullable();
+            $table->foreignId('id_coordinador')->references('id')->on('coordinadors')->onDelete('cascade');
+            $table->foreignId('id_representante')->references('id')->on('representantes')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
         });
