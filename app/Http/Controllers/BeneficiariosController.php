@@ -6,6 +6,12 @@ use App\Models\Beneficiarios;
 use App\Models\Coordinador;
 use App\Models\Representante;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Validation\ValidationException;
+use Laravel\Pail\ValueObjects\Origin\Console;
+
+use function Illuminate\Log\log;
 
 class BeneficiariosController extends Controller
 {
@@ -16,7 +22,9 @@ class BeneficiariosController extends Controller
     {
         $collection = Beneficiarios::with('representante')->paginate(10);
 
+
         $params['collection'] = $collection;
+        //dump($params);
         return view('beneficiarios.index', $params);
     }
 
@@ -36,15 +44,56 @@ class BeneficiariosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+
+            Beneficiarios::create([
+                'name'           => $request['name'],
+                'ap_paterno'     => $request['ap_paterno'],
+                'ap_materno'     => $request['ap_materno'],
+                'sexo'           => $request['sexo'],
+                'fech_nac'       => $request['fech_nac'],
+                'est_civil'      => $request['est_civil'],
+                'escolaridad'    => $request['escolaridad'],
+                'ine'            => $request['ine'],
+                'ing_mensual'    => $request['ing_mensual'],
+                'espa'           => $request['espa'],
+                'lengua'         => $request['lengua'],
+                'at_medica'      => $request['at_medica'],
+                'discapacidad'   => $request['discapacidad'],
+                'dep_economicos' => $request['dep_economicos'],
+                'prog_social'    => $request['prog_social'],
+                'ocupacion'      => $request['ocupacion'],
+                'localidad'      => $request['localidad'],
+                'telefono'       => $request['telefono'],
+                'direccion'      => $request['direccion'],
+                'correo'         => $request['email'],
+                'id_coordinador' => $request['coordi'],
+                'id_representante' => $request['repre'],
+            ]);
+
+
+            $response = [
+                "code" => 200,
+                "message" => "Exito"
+            ];
+            return redirect()->route('lista.benef')->with('success', 'Representante agregado Correctamente!');
+        } catch (ValidationException $e) {
+            $response = [
+                "code" => 422,
+                "message",
+                "error" => $e->errors()
+            ];
+        }
+        return response()->json($response);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Beneficiarios $beneficiarios)
+    public function show($id)
     {
-        //
+        $benef = Coordinador::findOrFail($id);
+        return view('beneficiarios.show', compact('benef'));
     }
 
     /**

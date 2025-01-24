@@ -189,7 +189,7 @@
                             <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label for="at_medica">{{ __('Atención Medica') }}</label>
-                                        <select id="at_medica" name="lengua"
+                                        <select id="at_medica" name="at_medica"
                                             value="{{ old('at_medica') }}"class="form-control select2" style="width: 100%;"
                                             required>
                                             <option selected="selected" value="IMMS">IMMS</option>
@@ -205,13 +205,14 @@
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="discapacidad">{{ __('Capacidades Diferentes') }}</label>
-                                        <select id="discapacidad" name="lengua"
+                                        <select id="discapacidad" name="discapacidad"
                                             value="{{ old('discapacidad') }}"class="form-control select2" style="width: 100%;"
                                             required>
                                             <option selected="selected" value="Auditiva">Auditiva</option>
                                             <option value="Visual">Visual</option>
                                             <option value="Motriz">Motriz</option>
                                             <option value="Lenguaje">Lenguaje</option>
+                                            <option value="Ninguna">Ninguna</option>
                                         </select>
                                         @error('discapacidad')
                                             <span class="invalid-feedback" role="alert">
@@ -231,7 +232,7 @@
                             <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label for="prog_social">{{ __('Cuenta con un Programa Social')}}</label>
-                                    <select id="prog_social" name="lengua"
+                                    <select id="prog_social" name="prog_social"
                                             value="{{ old('prog_social') }}"class="form-control select2" style="width: 100%;"
                                             required>
                                             <option selected="selected" value="Madres Solteras">Madres Solteras</option>
@@ -244,6 +245,30 @@
                                             <option value="Otro">Otro</option>
                                         </select>
                                         @error('prog_social')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="ocupacion">{{ __('Ocupación') }}</label>
+                                        <input id="ocupacion" type="text"
+                                            class="form-control @error('ocupacion') is-invalid @enderror" name="ocupacion"
+                                            value="{{ old('ocupacion') }}" required autocomplete="ocupacion" autofocus>
+
+                                        @error('ocupacion')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="localidad">{{ __('Localidad') }}</label>
+                                        <input id="localidad" type="text"
+                                            class="form-control @error('localidad') is-invalid @enderror" name="localidad"
+                                            value="{{ old('localidad') }}" required autocomplete="localidad" autofocus>
+
+                                        @error('localidad')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
@@ -295,7 +320,7 @@
                             </div>
 
                             <div class="form-row">
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-5">
                                 <label for="email">{{ __('Correo') }}</label>
                                     <input id="email" type="email"
                                         class="form-control @error('email') is-invalid @enderror" name="email"
@@ -303,7 +328,7 @@
                                     <div id="alert4" class="alert alert-danger" style="display:none" role="alert">
                                         Ingresa un correo valido</div>
                             </div>
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-7">
                                 <label for="direccion">{{ __('Dirección') }}</label>
                                     <input id="direccion" type="text"
                                         class="form-control @error('direccion') is-invalid @enderror" name="direccion"
