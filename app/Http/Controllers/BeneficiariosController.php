@@ -99,9 +99,13 @@ class BeneficiariosController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Beneficiarios $beneficiarios)
+    public function edit($id)
     {
-        //
+        $coordinadores = Coordinador::all();
+        $representantes = Representante::all();
+        $benef = Beneficiarios::with('representante')->findOrFail($id);
+
+        return view('beneficiarios.update', compact('benef', 'coordinadores', 'representantes'));
     }
 
     /**
