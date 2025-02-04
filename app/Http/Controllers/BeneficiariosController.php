@@ -92,7 +92,7 @@ class BeneficiariosController extends Controller
      */
     public function show($id)
     {
-        $benef = Coordinador::findOrFail($id);
+        $benef = Beneficiarios::with('representante')->findOrFail($id);
         return view('beneficiarios.show', compact('benef'));
     }
 

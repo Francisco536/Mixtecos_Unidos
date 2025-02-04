@@ -26,14 +26,14 @@
                                 <label for="name">{{ __('Nombre') }}</label>
                                     <input id="name" type="text"
                                         class="form-control @error('name') is-invalid @enderror" name="name"
-                                        value="{{ old('name') }}" disabled>
+                                        value="{{ $benef->name }}" disabled>
                             </div>
 
                             <div class="form-group col-md-4">
                                 <label for="ap_paterno">{{ __('Apellido Paterno') }}</label>
                                     <input id="ap_paterno" type="text"
                                         class="form-control @error('ap_paterno') is-invalid @enderror" name="ap_paterno"
-                                        value="{{ old('ap_paterno') }}" disabled>
+                                        value="{{ $benef->ap_paterno }}" disabled>
                             </div>
 
                             <div class="form-group col-md-4">
@@ -151,7 +151,7 @@
                                 <div class="form-group col-md-4">
                                     <label for="repre">{{ __('Representante') }}</label>
                                         <input id="repre" name="repre"
-                                            value="{{ $benefrepresentante->name }} {{ $representante->ap_paterno }} {{ $representante->ap_materno }}"class="form-control" style="width: 100%;"
+                                            value="{{ $benef->representante->name }} {{ $benef->representante->ap_paterno }} {{ $benef->representante->ap_materno }}"class="form-control" style="width: 100%;"
                                             disabled>
                                 </div>
 
@@ -168,7 +168,7 @@
                                 <label for="email">{{ __('Correo') }}</label>
                                     <input id="email" type="email"
                                         class="form-control" name="email"
-                                        value="{{ $benef->email }}" disabled>
+                                        value="{{ $benef->correo }}" disabled>
                             </div>
                             <div class="form-group col-md-7">
                                 <label for="direccion">{{ __('Dirección') }}</label>
@@ -181,7 +181,7 @@
 
                             <div class="row mb-0" style="text-align: center">
                                 <div class="col-md-6 offset-md-4">
-                                    <a href="{{ route('lista.repre') }}" class="btn btn-danger">
+                                    <a href="{{ route('lista.benef') }}" class="btn btn-danger">
                                         {{ __('Cancelar') }}
                                     </a>
                                 </div>
