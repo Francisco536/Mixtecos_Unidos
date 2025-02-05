@@ -111,9 +111,48 @@ class BeneficiariosController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Beneficiarios $beneficiarios)
+    public function update(Request $request, $id)
     {
-        //
+        try {
+
+            Beneficiarios::where('id', $id)->update([
+                'name'           => $request['name'],
+                'ap_paterno'     => $request['ap_paterno'],
+                'ap_materno'     => $request['ap_materno'],
+                'sexo'           => $request['sexo'],
+                'fech_nac'       => $request['fech_nac'],
+                'est_civil'      => $request['est_civil'],
+                'escolaridad'    => $request['escolaridad'],
+                'ine'            => $request['ine'],
+                'ing_mensual'    => $request['ing_mensual'],
+                'espa'           => $request['espa'],
+                'lengua'         => $request['lengua'],
+                'at_medica'      => $request['at_medica'],
+                'discapacidad'   => $request['discapacidad'],
+                'dep_economicos' => $request['dep_economicos'],
+                'prog_social'    => $request['prog_social'],
+                'ocupacion'      => $request['ocupacion'],
+                'localidad'      => $request['localidad'],
+                'telefono'       => $request['telefono'],
+                'direccion'      => $request['direccion'],
+                'correo'         => $request['email'],
+                'id_coordinador' => $request['coordi'],
+                'id_representante' => $request['repre'],
+            ]);
+
+            $response = [
+                "code" => 200,
+                "message" => "Exito"
+            ];
+            return redirect()->route('lista.benef')->with('success', 'Beneficiario actualizado Correctamente!');
+        } catch (ValidationException $e) {
+            $response = [
+                "code" => 422,
+                "message",
+                "error" => $e->errors()
+            ];
+        }
+        return response()->json($response);
     }
 
     /**

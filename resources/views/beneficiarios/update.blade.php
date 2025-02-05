@@ -18,7 +18,7 @@
                     <div class="card-header">{{ __('Actualizar') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" id="admin" name="admin" action="{{ route('store.benef') }}">
+                        <form method="POST" id="admin" name="admin" action="{{ route('update.benef', $benef->id) }}">
                             @csrf
 
                             <div class="form-row">
@@ -190,12 +190,12 @@
                                 <div class="form-group col-md-4">
                                     <label for="at_medica">{{ __('Atención Medica') }}</label>
                                         <select id="at_medica" name="at_medica"
-                                            value="{{ old('at_medica') }}"class="form-control select2" style="width: 100%;"
+                                            class="form-control select2" style="width: 100%;"
                                             required>
-                                            <option selected="selected" value="IMMS">IMMS</option>
-                                            <option value="ISSSTE">ISSSTE</option>
-                                            <option value="Particular">Particular</option>
-                                            <option value="Otro">Otro</option>
+                                            <option value="IMMS" @selected(old('at_medica', $benef->at_medica) == 'IMMS')>IMMS</option>
+                                            <option value="ISSSTE" @selected(old('at-medica', $benef->at_medica) == 'ISSSTE')>ISSSTE</option>
+                                            <option value="Particular" @selected(old('at-medica', $benef->at_medica) == 'Particular')>Particular</option>
+                                            <option value="Otro" @selected(old('at-medica', $benef->at_medica) == 'Otro')>Otro</option>
                                         </select>
                                         @error('at_medica')
                                             <span class="invalid-feedback" role="alert">
@@ -206,13 +206,13 @@
                                 <div class="form-group col-md-4">
                                     <label for="discapacidad">{{ __('Capacidades Diferentes') }}</label>
                                         <select id="discapacidad" name="discapacidad"
-                                            value="{{ old('discapacidad') }}"class="form-control select2" style="width: 100%;"
+                                            class="form-control select2" style="width: 100%;"
                                             required>
-                                            <option selected="selected" value="Auditiva">Auditiva</option>
-                                            <option value="Visual">Visual</option>
-                                            <option value="Motriz">Motriz</option>
-                                            <option value="Lenguaje">Lenguaje</option>
-                                            <option value="Ninguna">Ninguna</option>
+                                            <option value="Auditiva" @selected(old('discapacidad', $benef->discapacidad) == 'Auditiva')>Auditiva</option>
+                                            <option value="Visual" @selected(old('discapacidad', $benef->discapacidad) == 'Visual')>Visual</option>
+                                            <option value="Motriz" @selected(old('discapacidad', $benef->discapacidad) == 'Motriz')>Motriz</option>
+                                            <option value="Lenguaje" @selected(old('discapacidad', $benef->discapacidad) == 'Lenguaje')>Lenguaje</option>
+                                            <option value="Ninguna" @selected(old('discapacidad', $benef->discapacidad) == 'Ninguna')>Ninguna</option>
                                         </select>
                                         @error('discapacidad')
                                             <span class="invalid-feedback" role="alert">
@@ -223,7 +223,7 @@
                                 <div class="form-group col-md-4">
                                         <label for="dep_economicos">{{ __('Num. Dependientes Económicos') }}</label>
                                             <input id="dep_economicos" type="text" class="form-control" name="dep_economicos"
-                                                value="{{ old('dep_economicos') }}" required autocomplete="dep_economicos">
+                                                value="{{ $benef->dep_economicos }}" required autocomplete="dep_economicos">
                                             {{-- <div id="alert0" class="alert alert-danger" style="display:none" role="alert">
                                                 Ingresa solo números</div> --}}
                                 </div>
@@ -233,16 +233,16 @@
                                 <div class="form-group col-md-4">
                                     <label for="prog_social">{{ __('Cuenta con un Programa Social')}}</label>
                                     <select id="prog_social" name="prog_social"
-                                            value="{{ old('prog_social') }}"class="form-control select2" style="width: 100%;"
+                                            class="form-control select2" style="width: 100%;"
                                             required>
-                                            <option selected="selected" value="Madres Solteras">Madres Solteras</option>
-                                            <option value="65 y +">65 y +</option>
-                                            <option value="Discapacidad">Discapacidad</option>
-                                            <option value="Beca Benito Juarez">Beca Benito Juarez</option>
-                                            <option value="Sembrando Vida">Sembrando Vida</option>
-                                            <option value="Margarita Maza">Margarita Maza</option>
-                                            <option value="Jovenes Construyendo el Futuro">Jovenes Construyendo el Futuro</option>
-                                            <option value="Otro">Otro</option>
+                                            <option value="Madres Solteras" @selected(old('prog_social', $benef->prog_social) == 'Madres Solteras')>Madres Solteras</option>
+                                            <option value="65 y +" @selected(old('prog_social', $benef->prog_social) == '65 y +')>65 y +</option>
+                                            <option value="Discapacidad" @selected(old('prog_social', $benef->prog_social) == 'Discapacidad')>Discapacidad</option>
+                                            <option value="Beca Benito Juarez" @selected(old('prog_social', $benef->prog_social) == 'Beca Benito Juarez')>Beca Benito Juarez</option>
+                                            <option value="Sembrando Vida" @selected(old('prog_social', $benef->prog_social) == 'Sembrando Vida')>Sembrando Vida</option>
+                                            <option value="Margarita Maza" @selected(old('prog_social', $benef->prog_social) == 'Margarita Maza')>Margarita Maza</option>
+                                            <option value="Jovenes Construyendo el Futuro" @selected(old('prog_social', $benef->prog_social) == 'Jovenes Construyendo el Futuro')>Jovenes Construyendo el Futuro</option>
+                                            <option value="Otro" @selected(old('prog_social', $benef->prog_social) == 'Otro')>Otro</option>
                                         </select>
                                         @error('prog_social')
                                             <span class="invalid-feedback" role="alert">
@@ -254,7 +254,7 @@
                                     <label for="ocupacion">{{ __('Ocupación') }}</label>
                                         <input id="ocupacion" type="text"
                                             class="form-control @error('ocupacion') is-invalid @enderror" name="ocupacion"
-                                            value="{{ old('ocupacion') }}" required autocomplete="ocupacion" autofocus>
+                                            value="{{ $benef->ocupacion }}" required autocomplete="ocupacion" autofocus>
 
                                         @error('ocupacion')
                                             <span class="invalid-feedback" role="alert">
@@ -266,7 +266,7 @@
                                     <label for="localidad">{{ __('Localidad') }}</label>
                                         <input id="localidad" type="text"
                                             class="form-control @error('localidad') is-invalid @enderror" name="localidad"
-                                            value="{{ old('localidad') }}" required autocomplete="localidad" autofocus>
+                                            value="{{ $benef->localidad }}" required autocomplete="localidad" autofocus>
 
                                         @error('localidad')
                                             <span class="invalid-feedback" role="alert">
@@ -281,7 +281,7 @@
                                 <div class="form-group col-md-4">
                                     <label for="telefono">{{ __('Teléfono') }}</label>
                                         <input id="telefono" type="text" class="form-control" name="telefono"
-                                            value="{{ old('telefono') }}" required autocomplete="telefono">
+                                            value="{{ $benef->telefono }}" required autocomplete="telefono">
                                         <div id="alert0" class="alert alert-danger" style="display:none" role="alert">
                                             Ingresa solo números</div>
                                 </div>
@@ -289,10 +289,10 @@
                                 <div class="form-group col-md-4">
                                     <label for="repre">{{ __('Representante') }}</label>
                                         <select id="repre" name="repre"
-                                            value="{{ old('repre') }}"class="form-control select2" style="width: 100%;"
+                                            class="form-control select2" style="width: 100%;"
                                             required>
                                             @foreach ($representantes as $representante)
-                                                <option value="{{ $representante->id }}">{{ $representante->name }} {{ $representante->ap_paterno }} {{ $representante->ap_materno }}</option>
+                                                <option value="{{ $representante->id }}" @selected(old('id_representante', $benef->id_representante) == $representante->id)>{{ $representante->name }} {{ $representante->ap_paterno }} {{ $representante->ap_materno }}</option>
                                             @endforeach
                                         </select>
                                         @error('repre')
@@ -305,10 +305,10 @@
                                 <div class="form-group col-md-4">
                                 <label for="coordi">{{ __('Coordinador') }}</label>
                                     <select id="coordi" name="coordi"
-                                        value="{{ old('coordi') }}"class="form-control select2" style="width: 100%;"
+                                        class="form-control select2" style="width: 100%;"
                                         required>
                                         @foreach ($coordinadores as $coordinador)
-                                            <option value="{{ $coordinador->id }}">{{ $coordinador->name }} {{ $coordinador->ap_paterno }} {{ $coordinador->ap_materno }}</option>
+                                            <option value="{{ $coordinador->id }}" @selected(old('id_coordinador', $benef->id_coordinador) == $coordinador->id)>{{ $coordinador->name }} {{ $coordinador->ap_paterno }} {{ $coordinador->ap_materno }}</option>
                                         @endforeach
                                     </select>
                                     @error('coordi')
@@ -324,7 +324,7 @@
                                 <label for="email">{{ __('Correo') }}</label>
                                     <input id="email" type="email"
                                         class="form-control @error('email') is-invalid @enderror" name="email"
-                                        value="{{ old('email') }}" required autocomplete="email">
+                                        value="{{ $benef->correo }}" required autocomplete="email">
                                     <div id="alert4" class="alert alert-danger" style="display:none" role="alert">
                                         Ingresa un correo valido</div>
                             </div>
@@ -332,7 +332,7 @@
                                 <label for="direccion">{{ __('Dirección') }}</label>
                                     <input id="direccion" type="text"
                                         class="form-control @error('direccion') is-invalid @enderror" name="direccion"
-                                        value="{{ old('direccion') }}" required autocomplete="direccion" autofocus>
+                                        value="{{ $benef->direccion }}" required autocomplete="direccion" autofocus>
 
                                     @error('direccion')
                                         <span class="invalid-feedback" role="alert">
@@ -347,10 +347,10 @@
                             <div class="row mb-0" style="text-align: center">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-warning">
-                                        {{ __('Registrar') }}
+                                        {{ __('Actualizar') }}
                                     </button>
 
-                                    <a href="{{ route('lista.repre') }}" class="btn btn-danger">
+                                    <a href="{{ route('lista.benef') }}" class="btn btn-danger">
                                         {{ __('Cancelar') }}
                                     </a>
                                 </div>
