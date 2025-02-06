@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Coordinador;
+use App\Models\Representante;
 use Illuminate\Database\Query\IndexHint;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -67,7 +68,9 @@ class CoordinadorController extends Controller
     public function show($id)
     {
         $coordi = Coordinador::findOrFail($id);
-        return view('coordinador.show', compact('coordi'));
+        $collection = Representante::with('coordinador')->where('id_coordinador', $id)->paginate(10);
+
+        return view('coordinador.show', compact('coordi', 'collection'));
     }
 
     /**
