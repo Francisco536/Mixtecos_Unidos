@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Beneficiarios;
 use App\Models\Coordinador;
 use App\Models\Representante;
 use Illuminate\Http\Request;
@@ -71,10 +72,11 @@ class RepresentanteController extends Controller
     public function show($id)
     {
         $repre = Representante::with('coordinador')->findOrFail($id);
+        $collection = Beneficiarios::with('representante')->where('id_representante', $id)->paginate(10);
 
 
 
-        return view('representante.show', compact('repre'));
+        return view('representante.show', compact('repre', 'collection'));
     }
 
     /**
