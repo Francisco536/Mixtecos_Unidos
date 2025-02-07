@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BeneficiariosController;
 use App\Http\Controllers\CoordinadorController;
+use App\Http\Controllers\ExportController;
 use App\Http\Controllers\RepresentanteController;
 use Illuminate\Support\Facades\Route;
 
@@ -45,3 +46,8 @@ Route::group(['prefix' => 'beneficiarios'], function(){
     Route::get('destroy/{admin}', [BeneficiariosController::class, 'destroy'])->name("destroy.benef")->middleware('auth');
 
 });
+
+Route::group(['prefix' => 'download'], function(){
+    Route::get('/generar-listado', [ExportController::class, 'generar'])->name('generar.listado')->middleware('auth');
+});
+Route::get('/exportar-beneficiarios', [ExportController::class, 'exportBeneficiarios']);

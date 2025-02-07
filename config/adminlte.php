@@ -321,7 +321,7 @@ return [
         ['header' => 'Documentos'],
         [
             'text' => 'Descargar listados',
-            'url' => 'admin/settings',
+            'route' => 'generar.listado',
             'icon' => 'fas fa-download',
         ],
         // [
