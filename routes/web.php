@@ -51,3 +51,4 @@ Route::group(['prefix' => 'download'], function(){
     Route::get('/generar-listado', [ExportController::class, 'generar'])->name('generar.listado')->middleware('auth');
 });
 Route::get('/exportar-beneficiarios', [ExportController::class, 'exportBeneficiarios']);
+Route::get('/get-representantes/{id_coordinador}', [ExportController::class, 'getRepresentantes']);
