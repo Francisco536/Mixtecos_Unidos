@@ -318,7 +318,12 @@ return [
             'route' => 'lista.benef',
             'icon' => 'fas fa-users',
         ],
-        ['header' => 'Documentos'],
+        ['header' => 'Acciones'],
+        [
+            'text' => 'Eventos y Apoyos',
+            'route' => 'generar.listado',
+            'icon' => 'fas fa-boxes',
+        ],
         [
             'text' => 'Descargar listados',
             'route' => 'generar.listado',
