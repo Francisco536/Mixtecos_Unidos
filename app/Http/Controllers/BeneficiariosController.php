@@ -158,8 +158,15 @@ class BeneficiariosController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Beneficiarios $beneficiarios)
+    public function destroy($id)
     {
-        //
+        $post = Beneficiarios::find($id);
+
+        if ($post) {
+            $post->delete();
+            return redirect()->route('lista.benef')->with('message','Beneficiario eliminado correctamente');
+        }
+
+        return redirect()->back()->with('error', 'El registro no existe.');
     }
 }
