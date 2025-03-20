@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Beneficiarios;
+use App\Models\Representante;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        $representantesCount = Representante::count();
+        $beneficiariosCount = Beneficiarios::count();
+        return view('home', compact('representantesCount', 'beneficiariosCount'));
     }
 }

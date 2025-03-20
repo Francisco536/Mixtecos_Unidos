@@ -302,6 +302,11 @@ return [
 
     'menu' => [
 
+        [
+            'text' => 'Home',
+            'route' => 'home',
+            'icon' => 'fas fa-home',
+        ],
         ['header' => 'Opciones'],
         [
             'text' => 'Coordinadores',
